@@ -1,38 +1,55 @@
 import Lottie from "lottie-react";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsKey } from "react-icons/bs";
-import loginLogo from "../../../public/loginAnimation.json"
+import loginLogo from "../../../public/loginAnimation.json";
 import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="flex items-center justify-evenly">
+    <div className="flex items-center justify-evenly  bg-[#F0F6FA] px-5 rounded-xl pb-11">
       <div className="flex-1">
-        <h1 className="text-3xl text-center bg-gradient-to-r from-purple-500 to-pink-500 mb-7 py-9 rounded-3xl font-bold w-80">Login</h1>
-<form >
-<div className="form-control mb-6 w-80">
-          <label className="input-group">
-            <span className="text-2xl"><AiOutlineMail/></span>
-            <input
-              type="text"
-              placeholder="info@site.com"
-              className="input input-bordered w-80"
-            />
-          </label>
-        </div>
-        <div className="form-control w-80">
-          <label className="input-group">
-            <span className="text-2xl"><BsKey/></span>
-            <input
-              type="text"
-              placeholder="info@site.com"
-              className="input input-bordered w-80"
-            />
-          </label>
-        </div>
-        <button className="btn btn-block bg-pink-500 text-xl font-bold text-white w-80 mt-6">Login</button>
-        <p className="mt-3">Dont Have An Account? <Link className="text-pink-600 font-semibold" to={'/register'}>Register</Link> </p>
-</form>
+        <h1 className="text-3xl text-white text-center bg-gradient-to-r from-purple-500 to-pink-500 mb-7 py-9 rounded-3xl font-bold w-80">
+          Login
+        </h1>
+        <form>
+          <div className="form-control mb-6 w-80">
+            <label className="input-group">
+              <span className="text-3xl bg-[#dceaf3]">
+                <AiOutlineMail />
+              </span>
+              <input
+                type="text"
+                placeholder="Email"
+                className="input input-bordered w-80 bg-[#dceaf3]"
+              />
+            </label>
+          </div>
+          <div className="form-control w-80">
+            <label className="input-group">
+              <span className="text-3xl bg-[#dceaf3]">
+                <BsKey />
+              </span>
+              <input
+                type="password"
+                placeholder="Password"
+                className="input input-bordered w-80 bg-[#dceaf3]"
+              />
+            </label>
+          </div>
+          <div className="form-control flex flex-row items-center mt-4 gap-3">
+              <input type="checkbox" className="checkbox" />
+              <span className="block">Show Password</span>
+          </div>
+          <button type="submit" className="btn btn-block bg-pink-500 text-xl font-bold text-white w-80 mt-5">
+            Login
+          </button>
+          <p className="mt-3">
+            Don&apos;t Have An Account?{" "}
+            <Link className="text-pink-600 font-semibold" to={"/register"}>
+              Register
+            </Link>{" "}
+          </p>
+        </form>
       </div>
 
       <div className="max-h-[80vh] flex-1">
