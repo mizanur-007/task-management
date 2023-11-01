@@ -1,9 +1,10 @@
 import React from 'react';
+import LoaderPage from '../LoaderPage/LoaderPage';
 
 const Home = () => {
     return (
         <div>
-           <h1>hdsfigo;jkio;</h1>
+           <LoaderPage></LoaderPage>
         </div>
     );
 };
