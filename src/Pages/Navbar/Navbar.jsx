@@ -1,22 +1,41 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <a className="btn btn-ghost normal-case text-xl">TaskSwift</a>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">
-          <NavLink
-  to="/login"
+<div className='space-x-6'>
+<NavLink
+  to="/"
   className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "active" : ""
+    isPending ? "pending" : isActive ? "active text-red-600 font-bold underline" : ""
   }
 >
-  Login
+  Dashboard
 </NavLink>
+          <NavLink
+  to="/tasks"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "active text-red-600 font-bold underline" : ""
+  }
+>
+  Tasks
+</NavLink>
+          <NavLink
+  to="/projects"
+  className={({ isActive, isPending }) =>
+    isPending ? "pending" : isActive ? "active text-red-600 font-bold underline" : ""
+  }
+>
+  Projects
+</NavLink>
+<Link to={'/login'}><button className='btn btn-outline btn-accent'>LogIn</button></Link>
+</div>
           </div>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
