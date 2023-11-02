@@ -11,9 +11,9 @@ const perPage = 8;
 
 //data load
     const {data, isLoading, isError} = useQuery({
-        queryKey:["tasks"],
+        queryKey:["tasks",currentPage],
         queryFn: async()=>{
-            const result = await axios.get("http://localhost:5000/tasks");
+            const result = await axios.get(`http://localhost:5000/tasks?currentPage=${currentPage}&size=${perPage}`);
             const data = await result.data;
             return data;
         }

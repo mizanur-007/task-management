@@ -9,6 +9,7 @@ import Registration from './Pages/Registration/Registration'
 import ErrorPage from './Pages/ErrorPage/ErrorPage'
 import AuthProvider from './AuthProvider/AuthProvider'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Tasks from './Pages/Tasks/Tasks.jsx'
 
 const client = new QueryClient()
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element:<Registration></Registration>
+      },
+      {
+        path:'/tasks',
+        element:<Tasks></Tasks>
       }
     ]
   }
