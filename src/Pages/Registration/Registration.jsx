@@ -9,8 +9,8 @@ import registerlogo from '../../../public/registrationAnimation.json'
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Registration = () => {
-  
-  const {s} = useContext(AuthContext);
+
+  const {signIn, updateUser} = useContext(AuthContext);
     const [check, setCheck]=useState(false);
     const handleRegistration = (event)=>{
         event.preventDefault();
@@ -19,7 +19,15 @@ const Registration = () => {
     const password = form.password.value;
     const image = form.image.value;
     const name = form.name.value;
-    console.log(email,password,name,image)
+    signIn(email, password)
+    .then((userCredential)=>{
+      const user = userCredential.user;
+      console.log(user);
+      updateUser(name,image)
+    })
+    .catch((error)=>{
+      console.log(error.message)
+    })
         
     }
     return (
@@ -77,7 +85,7 @@ const Registration = () => {
                   <BsKey />
                 </span>
                 <input
-                  type={`${check? 'text':'password'}`}
+                  type='password'
                   name="password"
                   required
                   placeholder="Password"
