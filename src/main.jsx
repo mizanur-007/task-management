@@ -10,6 +10,7 @@ import ErrorPage from './Pages/ErrorPage/ErrorPage'
 import AuthProvider from './AuthProvider/AuthProvider'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Tasks from './Pages/Tasks/Tasks.jsx'
+import TaskDetails from './Pages/Tasks/TaskDetails.jsx'
 
 const client = new QueryClient()
 
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
       {
         path:'/tasks',
         element:<Tasks></Tasks>
+      },
+      {
+        path:'/taskdetails/:id',
+        element:<TaskDetails></TaskDetails>,
+        loader: ({params})=>fetch(`http://localhost:5000/tasks/${params.id}`)
       }
     ]
   }

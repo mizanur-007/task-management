@@ -34,7 +34,6 @@ const perPage = 8;
     const numberOfPage = Math.ceil(totalCount/perPage);
 
     const pages = [...Array(numberOfPage).keys()]
-    console.log(currentPage)
 
     const handlePrevious = ()=>{
         if(currentPage>0){
