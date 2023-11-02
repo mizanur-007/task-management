@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsKey } from "react-icons/bs";
 import { HiCamera } from "react-icons/hi2";
@@ -6,8 +6,11 @@ import { RxAvatar } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import registerlogo from '../../../public/registrationAnimation.json'
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Registration = () => {
+  
+  const {s} = useContext(AuthContext);
     const [check, setCheck]=useState(false);
     const handleRegistration = (event)=>{
         event.preventDefault();

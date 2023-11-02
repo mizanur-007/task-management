@@ -29,6 +29,7 @@ const Login = () => {
               <input
                 type="text"
                 name="email"
+                required
                 placeholder="Email"
                 className="input input-bordered w-80 bg-[#dceaf3]"
               />
@@ -42,6 +43,7 @@ const Login = () => {
               <input
                 type={`${check? 'text':'password'}`}
                 name="password"
+                required
                 placeholder="Password"
                 className="input input-bordered w-80 bg-[#dceaf3]"
               />
