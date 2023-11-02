@@ -49,12 +49,12 @@ const Navbar = () => {
   Projects
 </NavLink>
 {
-  !user?.email && <Link to={'/login'}><button className='btn btn-outline btn-accent'>LogIn</button></Link>
+  !user && <Link to={'/login'}><button className='btn btn-outline btn-accent'>LogIn</button></Link>
 }
 </div>
           </div>
 {
-  user?.email &&           <div className="dropdown dropdown-end">
+  user &&           <div className="dropdown dropdown-end">
   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
     <div className="w-10 rounded-full">
       <img src={user?.photoURL} />

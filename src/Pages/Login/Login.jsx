@@ -10,7 +10,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Login = () => {
   const [check, setCheck]=useState(false);
 
-  const {signIn, googleLogin} = useContext(AuthContext);
+  const {signIn, googleLogin,githubLogin} = useContext(AuthContext);
 
   //email password login
   const handleLogin = (event)=>{
@@ -30,6 +30,17 @@ const Login = () => {
   //google login
   const handleGoogleLogin = ()=>{
     googleLogin()
+    .then(()=>{
+      alert("success")
+    })
+    .catch(()=>{
+      alert('error')
+    })
+  }
+
+  //github login
+  const handleGithubLogin = ()=>{
+    githubLogin()
     .then(()=>{
       alert("success")
     })
@@ -89,7 +100,7 @@ const Login = () => {
         <div className="flex flex-col items-center ml-20 lg:flex-row">
   <div className="grid place-items-center text-3xl"><button onClick={handleGoogleLogin}><FcGoogle/></button></div> 
   <div className="divider lg:divider-horizontal">OR</div> 
-  <div className="grid place-items-center text-3xl"><BsGithub/></div>
+  <div className="grid place-items-center text-3xl"><button onClick={handleGithubLogin}><BsGithub/></button></div>
 </div>
       </div>
 

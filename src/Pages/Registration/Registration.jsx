@@ -10,7 +10,7 @@ import registerlogo from "../../../public/registrationAnimation.json";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Registration = () => {
-  const { signUp, updateUser, googleLogin } = useContext(AuthContext);
+  const { signUp, updateUser, googleLogin, githubLogin } = useContext(AuthContext);
   const handleRegistration = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -39,6 +39,16 @@ const Registration = () => {
         alert("error");
       });
   };
+    //github login
+    const handleGithubLogin = ()=>{
+      githubLogin()
+      .then(()=>{
+        alert("success")
+      })
+      .catch(()=>{
+        alert('error')
+      })
+    }
   return (
     <div className="flex flex-row-reverse items-center justify-between gap-52  bg-[#dbf5fb] px-5 rounded-xl pb-11 pt-8">
       <div className="flex-1 ml-16">
@@ -127,7 +137,7 @@ const Registration = () => {
         <div className="flex flex-col items-center ml-20 lg:flex-row">
   <div className="grid place-items-center text-3xl"><button onClick={handleGoogleLogin}><FcGoogle/></button></div> 
   <div className="divider lg:divider-horizontal">OR</div> 
-  <div className="grid place-items-center text-3xl"><BsGithub/></div>
+  <div className="grid place-items-center text-3xl"><button onClick={handleGithubLogin}><BsGithub/></button></div>
 </div>
       </div>
       <div className="max-h-[80vh] flex-1">
