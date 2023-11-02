@@ -1,11 +1,12 @@
-import React from 'react';
-import LoaderPage from '../LoaderPage/LoaderPage';
+
 import Banner from '../Banner.jsx/Banner';
+import Task from '../Tasks/Task';
 
 const Home = () => {
     return (
         <div>
            <Banner></Banner>
+           <Task></Task>
         </div>
     );
 };
