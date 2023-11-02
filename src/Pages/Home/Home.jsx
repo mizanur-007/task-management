@@ -1,12 +1,12 @@
 
 import Banner from '../Banner.jsx/Banner';
-import Task from '../Tasks/Task';
+import Tasks from '../Tasks/Tasks';
 
 const Home = () => {
     return (
         <div>
            <Banner></Banner>
-           <Task></Task>
+           <Tasks></Tasks>
         </div>
     );
 };

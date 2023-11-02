@@ -15,7 +15,6 @@ const Navbar = () => {
 
   }
   const {user} = useContext(AuthContext);
-  console.log(user)
     return (
         <div className="navbar bg-base-100">
         <div className="flex-1">
