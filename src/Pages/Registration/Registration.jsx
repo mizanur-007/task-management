@@ -10,8 +10,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Registration = () => {
 
-  const {signIn, updateUser} = useContext(AuthContext);
-    const [check, setCheck]=useState(false);
+  const {signUp, updateUser} = useContext(AuthContext);
     const handleRegistration = (event)=>{
         event.preventDefault();
     const form = event.target;
@@ -19,7 +18,7 @@ const Registration = () => {
     const password = form.password.value;
     const image = form.image.value;
     const name = form.name.value;
-    signIn(email, password)
+    signUp(email, password)
     .then((userCredential)=>{
       const user = userCredential.user;
       console.log(user);
@@ -94,7 +93,7 @@ const Registration = () => {
               </label>
             </div>
             <div className="form-control flex flex-row items-center mt-4 gap-3">
-                <input type="checkbox" name="checkbox" className="checkbox" onChange={(e)=>{setCheck(e.target.checked)}} required/>
+                <input type="checkbox" name="checkbox" className="checkbox" required/>
                 <span className="block">Accept our terms & policies</span>
             </div>
             <button type="submit" className="btn btn-block bg-gradient-to-br from-[#11bfef] to-[#8ff7d1] text-xl font-bold text-white w-80 mt-5">

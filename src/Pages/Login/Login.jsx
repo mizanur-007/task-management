@@ -3,16 +3,26 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsKey } from "react-icons/bs";
 import loginLogo from "../../../public/loginAnimation.json";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
   const [check, setCheck]=useState(false);
+
+  const {signIn} = useContext(AuthContext);
 
   const handleLogin = (event)=>{
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    signIn(email,password)
+    .then(()=>{
+      alert("logged in")
+    })
+    .catch((error)=>{
+      alert(error.message)
+    })
   }
   return (
     <div className="flex items-center justify-evenly  bg-[#F0F6FA] px-5 rounded-xl pb-11">
