@@ -1,6 +1,7 @@
 import Lottie from "lottie-react";
 import { AiOutlineMail } from "react-icons/ai";
-import { BsKey } from "react-icons/bs";
+import { BsKey, BsGithub } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
 import loginLogo from "../../../public/loginAnimation.json";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
@@ -9,8 +10,9 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Login = () => {
   const [check, setCheck]=useState(false);
 
-  const {signIn} = useContext(AuthContext);
+  const {signIn, googleLogin} = useContext(AuthContext);
 
+  //email password login
   const handleLogin = (event)=>{
     event.preventDefault();
     const form = event.target;
@@ -24,8 +26,19 @@ const Login = () => {
       alert(error.message)
     })
   }
+
+  //google login
+  const handleGoogleLogin = ()=>{
+    googleLogin()
+    .then(()=>{
+      alert("success")
+    })
+    .catch(()=>{
+      alert('error')
+    })
+  }
   return (
-    <div className="flex items-center justify-evenly  bg-[#F0F6FA] px-5 rounded-xl pb-11">
+    <div className="flex items-center justify-evenly  bg-[#F0F6FA] px-5 rounded-xl pb-11 pt-10">
       <div className="flex-1">
         <h1 className="text-3xl text-white text-center bg-gradient-to-r from-purple-500 to-pink-500 mb-7 py-9 rounded-3xl font-bold w-80">
           Login
@@ -73,6 +86,11 @@ const Login = () => {
             </Link>{" "}
           </p>
         </form>
+        <div className="flex flex-col items-center ml-20 lg:flex-row">
+  <div className="grid place-items-center text-3xl"><button onClick={handleGoogleLogin}><FcGoogle/></button></div> 
+  <div className="divider lg:divider-horizontal">OR</div> 
+  <div className="grid place-items-center text-3xl"><BsGithub/></div>
+</div>
       </div>
 
       <div className="max-h-[80vh] flex-1">
