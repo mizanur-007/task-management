@@ -1,16 +1,23 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const {logOut} = useContext(AuthContext);
+
+  // logout
   const handleLogout = ()=>{
     logOut()
     .then(()=>{
-      console.log('signout Success')
+      toast.success("LogOut Complete",{
+        autoClose: 2000
+      });
     })
-    .catch((error)=>{
-      console.log("error oss", error.message)
+    .catch(()=>{
+      toast.error("problem Occured",{
+        autoClose: 2000
+      });
     })
 
   }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react';
+import { toast } from 'react-toastify';
 
 const AddTask = () => {
 
@@ -21,11 +21,15 @@ const AddTask = () => {
     
         }
         axios.post(`http://localhost:5000/tasks`,AddData,{withCredentials:true})
-        .then((res)=>{
-            console.log(res.data)
+        .then(()=>{
+          toast.error("Added Successfully",{
+            autoClose: 2000
+          });
         })
         .catch(()=>{
-            console.log("add error")
+          toast.error("Add Cancelled",{
+            autoClose: 2000
+          });
         })
     
       }

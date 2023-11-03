@@ -1,6 +1,6 @@
 import axios from "axios";
-import React from "react";
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Update = () => {
   const data = useLoaderData();
@@ -31,11 +31,15 @@ const Update = () => {
 
     }
     axios.put(`http://localhost:5000/update/${_id}`,updatedData,{withCredentials:true})
-    .then((res)=>{
-        console.log(res.data)
+    .then(()=>{
+      toast.success("Updated Successfully",{
+        autoClose: 2000
+      });
     })
     .catch(()=>{
-        console.log("update error")
+      toast.error("Update unsuccessful",{
+        autoClose: 2000
+      });
     })
 
   }

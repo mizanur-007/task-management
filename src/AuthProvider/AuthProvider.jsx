@@ -34,14 +34,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true)
     return signInWithPopup(auth, githubProvider)
   }
-  //set users name and image 
 
-  const updateUser = (name,image)=>{
-    setLoading(true)
-    updateProfile(auth.currentUser, {
-        displayName: name, photoURL: image
-      })
-  }
 
     // observer 
     useEffect(() => {
@@ -76,6 +69,14 @@ const AuthProvider = ({ children }) => {
         };
       }, []);
 
+        //set users name and image 
+
+  const updateUser = (name,image)=>{
+   return updateProfile(auth.currentUser, {
+        displayName: name, photoURL: image
+      })
+  }
+
       //logout
       const logOut =()=>{
         return signOut(auth)
@@ -88,7 +89,8 @@ const AuthProvider = ({ children }) => {
     logOut,
     signIn,
     googleLogin,
-    githubLogin
+    githubLogin,
+    loading
   };
 
   return (

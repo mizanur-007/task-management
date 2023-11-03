@@ -1,10 +1,9 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import React from 'react';
 import LoaderPage from '../LoaderPage/LoaderPage';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import ToDoTask from './ToDoTask';
-import {  useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ToDo = () => {
     const client = useQueryClient();
@@ -27,12 +26,16 @@ const ToDo = () => {
     //delete a card
     const handleDelete = (id)=>{
         axios.delete(`http://localhost:5000/todolist/${id}`)
-        .then((res)=>{
-            console.log(res.data)
+        .then(()=>{
+            toast.error("Deleted Task",{
+                autoClose: 2000
+              });
             client.invalidateQueries('todo');
         })
         .catch(()=>{
-            console.log("delete error")
+            toast.error("Deletion Denied",{
+                autoClose: 2000
+              });
         })
 
     }

@@ -4,13 +4,17 @@ import { BsKey, BsGithub } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { HiCamera } from "react-icons/hi2";
 import { RxAvatar } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import registerlogo from "../../../public/registrationAnimation.json";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Registration = () => {
-  const { signUp, updateUser, googleLogin, githubLogin } = useContext(AuthContext);
+  const { signUp, updateUser, googleLogin, githubLogin } =
+    useContext(AuthContext);
+
+  const navigate = useNavigate();
   const handleRegistration = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -19,13 +23,14 @@ const Registration = () => {
     const image = form.image.value;
     const name = form.name.value;
     signUp(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        updateUser(name, image);
+      .then(() => {
+        updateUser(name, image).then(() => {
+          toast.success("Registration Successful");
+          navigate("/");
+        });
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error(error.message);
       });
   };
 
@@ -33,22 +38,30 @@ const Registration = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then(() => {
-        alert("success");
+        toast.success("Registration successful", {
+          autoClose: 2000,
+        });
       })
       .catch(() => {
-        alert("error");
+        toast.error("Registration Unsuccessful", {
+          autoClose: 2000,
+        });
       });
   };
-    //github login
-    const handleGithubLogin = ()=>{
-      githubLogin()
-      .then(()=>{
-        alert("success")
+  //github login
+  const handleGithubLogin = () => {
+    githubLogin()
+      .then(() => {
+        toast.success("Registration successful", {
+          autoClose: 2000,
+        });
       })
-      .catch(()=>{
-        alert('error')
-      })
-    }
+      .catch((error) => {
+        toast.error(error.message, {
+          autoClose: 2000,
+        });
+      });
+  };
   return (
     <div className="flex flex-row-reverse items-center justify-between gap-52  bg-[#dbf5fb] px-5 rounded-xl pb-11 pt-8">
       <div className="flex-1 ml-16">
@@ -135,10 +148,18 @@ const Registration = () => {
           </p>
         </form>
         <div className="flex flex-col items-center ml-20 lg:flex-row">
-  <div className="grid place-items-center text-3xl"><button onClick={handleGoogleLogin}><FcGoogle/></button></div> 
-  <div className="divider lg:divider-horizontal">OR</div> 
-  <div className="grid place-items-center text-3xl"><button onClick={handleGithubLogin}><BsGithub/></button></div>
-</div>
+          <div className="grid place-items-center text-3xl">
+            <button onClick={handleGoogleLogin}>
+              <FcGoogle />
+            </button>
+          </div>
+          <div className="divider lg:divider-horizontal">OR</div>
+          <div className="grid place-items-center text-3xl">
+            <button onClick={handleGithubLogin}>
+              <BsGithub />
+            </button>
+          </div>
+        </div>
       </div>
       <div className="max-h-[80vh] flex-1">
         <Lottie animationData={registerlogo}></Lottie>
