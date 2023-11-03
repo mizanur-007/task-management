@@ -16,7 +16,7 @@ const Navbar = () => {
   }
   const {user} = useContext(AuthContext);
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 sticky top-0">
         <div className="flex-1">
           <a className="btn btn-ghost normal-case text-2xl font-bold text-emerald-700">TaskSwift</a>
         </div>
