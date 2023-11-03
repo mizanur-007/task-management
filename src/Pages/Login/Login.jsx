@@ -6,6 +6,8 @@ import loginLogo from "../../../public/loginAnimation.json";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import {  toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [check, setCheck]=useState(false);
@@ -22,12 +24,16 @@ const Login = () => {
     const password = form.password.value;
     signIn(email,password)
     .then(()=>{
-      alert("logged in")
+      toast.success("Log In Successfull",{
+        autoClose: 2000
+      });
       navigate(location.state? location.state:"/")
 
     })
-    .catch((error)=>{
-      alert(error.message)
+    .catch(()=>{
+      toast.error("problem Occured",{
+        autoClose: 2000
+      });
     })
   }
 
@@ -35,11 +41,15 @@ const Login = () => {
   const handleGoogleLogin = ()=>{
     googleLogin()
     .then(()=>{
-      alert("success")
+      toast.success("Log In Successfull",{
+        autoClose: 2000
+      });
       navigate(location.state? location.state:"/")
     })
     .catch(()=>{
-      alert('error')
+      toast.error("problem Occured",{
+        autoClose: 2000
+      });
     })
   }
 
@@ -47,11 +57,15 @@ const Login = () => {
   const handleGithubLogin = ()=>{
     githubLogin()
     .then(()=>{
-      alert("success")
+      toast.success("Log In Successfull",{
+        autoClose: 2000
+      });
       navigate(location.state? location.state:"/")
     })
     .catch(()=>{
-      alert('error')
+      toast.error("problem Occured",{
+        autoClose: 2000
+      });
     })
   }
   return (

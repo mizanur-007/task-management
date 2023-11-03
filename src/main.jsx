@@ -15,6 +15,7 @@ import Update from './Pages/Update/Update.jsx'
 import ToDo from './Pages/ToDo/ToDo.jsx'
 import AddTask from './Pages/Add Task/AddTask.jsx'
 import PrivateRoute from './Pages/Private Route/PrivateRoute.jsx'
+import { ToastContainer } from 'react-toastify'
 
 const client = new QueryClient()
 
@@ -67,6 +68,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <QueryClientProvider client={client}>
     <AuthProvider>
     <RouterProvider router={router}></RouterProvider>
+    <ToastContainer></ToastContainer>
     </AuthProvider>
     </QueryClientProvider>
   </React.StrictMode>,
