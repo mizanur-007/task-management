@@ -13,6 +13,7 @@ import Tasks from './Pages/Tasks/Tasks.jsx'
 import TaskDetails from './Pages/Tasks/TaskDetails.jsx'
 import Update from './Pages/Update/Update.jsx'
 import ToDo from './Pages/ToDo/ToDo.jsx'
+import AddTask from './Pages/Add Task/AddTask.jsx'
 
 const client = new QueryClient()
 
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path:'/todo',
         element:<ToDo></ToDo>
+      },
+      {
+        path:'/add',
+        element:<AddTask></AddTask>
       }
     ]
   }
