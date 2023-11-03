@@ -40,12 +40,12 @@ const Navbar = () => {
   Tasks
 </NavLink>
           <NavLink
-  to="/projects"
+  to="/todo"
   className={({ isActive, isPending }) =>
     isPending ? "pending" : isActive ? "active text-red-600 font-bold underline" : ""
   }
 >
-  Projects
+  To Do
 </NavLink>
 {
   !user && <Link to={'/login'}><button className='btn btn-outline btn-accent'>LogIn</button></Link>

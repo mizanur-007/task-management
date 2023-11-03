@@ -1,9 +1,20 @@
-import React from 'react';
+import axios from 'axios';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const TaskDetails = () => {
     const data = useLoaderData()
-    const {_id, projectTitle, task, detailInformation, dueDate} = data;
+    const {_id, projectTitle, task, detailInformation, dueDate, shortDescription} = data;
+
+    const handleAddList = ()=>{
+        const addData = {task,projectTitle, shortDescription, detailInformation, dueDate };
+        axios.post('http://localhost:5000/todolist',addData,{withCredentials:true})
+        .then((res)=>{
+            console.log(res.data)
+        })
+        .catch(()=>{
+            console.log("todo error")
+        })
+    }
 
     return (
         <div className="mt-10 bg-cyan-50 py-8 px-10 rounded-xl shadow-lime-600 flex justify-between">
@@ -18,7 +29,7 @@ const TaskDetails = () => {
             <Link to={`/update/${_id}`}> <button className='btn btn-accent mt-6 text-white font-bold text-xl'>UPDATE</button>
             </Link>
             <br />
-            <button className='btn btn-accent mt-6 text-white font-bold text-xl'>ADD TO DO LIST</button>
+            <button onClick={handleAddList} className='btn btn-accent mt-6 text-white font-bold text-xl'>ADD TO DO LIST</button>
             </div>
             
         </div>

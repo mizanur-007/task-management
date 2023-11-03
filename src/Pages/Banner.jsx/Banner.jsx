@@ -7,7 +7,7 @@ const Banner = () => {
   <div className="hero-overlay bg-opacity-50 rounded-xl"></div>
   <div className=" text-center w-500px">
     <form>
-        <input className='w-80 py-[12px] rounded-l-lg pl-2' type="text" />
+        <input className='w-80 py-[12px] rounded-l-lg pl-2' placeholder='Search Here' type="text" />
         <button className='btn btn-error text-white font-bold rounded-none rounded-r-lg pt-[2px]'>Search</button>
     </form>
   </div>
