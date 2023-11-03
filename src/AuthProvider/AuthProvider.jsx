@@ -10,28 +10,34 @@ const githubProvider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState("");
+    const [loading, setLoading] = useState(true);
 
     //create a user with email password
   const signUp = (email,password)=>{
+    setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password)
   }
 
   //signIn a user
   const signIn = (email,password)=>{
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
   }
 
   //googlelogin
   const googleLogin = ()=>{
+    setLoading(true)
     return signInWithPopup(auth, provider)
   }
   //githublogin
   const githubLogin = ()=>{
+    setLoading(true)
     return signInWithPopup(auth, githubProvider)
   }
   //set users name and image 
 
   const updateUser = (name,image)=>{
+    setLoading(true)
     updateProfile(auth.currentUser, {
         displayName: name, photoURL: image
       })
@@ -41,7 +47,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (user) => {
           setUser(user);
-        //   setLoading(false);
+          setLoading(false);
         const loggedUser = {email: user?.email}
 
         if(user){

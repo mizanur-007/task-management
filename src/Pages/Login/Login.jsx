@@ -3,7 +3,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsKey, BsGithub } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import loginLogo from "../../../public/loginAnimation.json";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
@@ -11,6 +11,8 @@ const Login = () => {
   const [check, setCheck]=useState(false);
 
   const {signIn, googleLogin,githubLogin} = useContext(AuthContext);
+  const location = useLocation()
+  const navigate = useNavigate();
 
   //email password login
   const handleLogin = (event)=>{
@@ -21,6 +23,8 @@ const Login = () => {
     signIn(email,password)
     .then(()=>{
       alert("logged in")
+      navigate(location.state? location.state:"/")
+
     })
     .catch((error)=>{
       alert(error.message)
@@ -32,6 +36,7 @@ const Login = () => {
     googleLogin()
     .then(()=>{
       alert("success")
+      navigate(location.state? location.state:"/")
     })
     .catch(()=>{
       alert('error')
@@ -43,6 +48,7 @@ const Login = () => {
     githubLogin()
     .then(()=>{
       alert("success")
+      navigate(location.state? location.state:"/")
     })
     .catch(()=>{
       alert('error')

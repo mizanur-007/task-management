@@ -18,7 +18,7 @@ const Navbar = () => {
     return (
         <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">TaskSwift</a>
+          <a className="btn btn-ghost normal-case text-2xl font-bold text-emerald-700">TaskSwift</a>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">
@@ -29,7 +29,7 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "active text-red-600 font-bold underline" : ""
   }
 >
-  Dashboard
+  <span className='text-xl font-semibold text-emerald-600'>Dashboard</span>
 </NavLink>
           <NavLink
   to="/tasks"
@@ -37,7 +37,7 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "active text-red-600 font-bold underline" : ""
   }
 >
-  Tasks
+  <span className='text-xl font-semibold text-emerald-600'>Tasks</span>
 </NavLink>
           <NavLink
   to="/todo"
@@ -45,7 +45,7 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "active text-red-600 font-bold underline" : ""
   }
 >
-  To Do
+  <span className='text-xl font-semibold text-emerald-600'>To Do</span>
 </NavLink>
           <NavLink
   to="/add"
@@ -53,7 +53,7 @@ const Navbar = () => {
     isPending ? "pending" : isActive ? "active text-red-600 font-bold underline" : ""
   }
 >
-  ADD
+ <span className='text-xl font-semibold text-emerald-600'>ADD</span>
 </NavLink>
 {
   !user && <Link to={'/login'}><button className='btn btn-outline btn-accent'>LogIn</button></Link>

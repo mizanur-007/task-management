@@ -14,6 +14,7 @@ import TaskDetails from './Pages/Tasks/TaskDetails.jsx'
 import Update from './Pages/Update/Update.jsx'
 import ToDo from './Pages/ToDo/ToDo.jsx'
 import AddTask from './Pages/Add Task/AddTask.jsx'
+import PrivateRoute from './Pages/Private Route/PrivateRoute.jsx'
 
 const client = new QueryClient()
 
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/todo',
-        element:<ToDo></ToDo>
+        element:<PrivateRoute><ToDo></ToDo></PrivateRoute>
       },
       {
         path:'/add',
