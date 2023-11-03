@@ -43,12 +43,12 @@ const router = createBrowserRouter([
       },
       {
         path:'/taskdetails/:id',
-        element:<TaskDetails></TaskDetails>,
+        element:<PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>,
         loader: ({params})=>fetch(`http://localhost:5000/tasks/${params.id}`)
       },
       {
         path:'/update/:id',
-        element:<Update></Update>,
+        element:<PrivateRoute><Update></Update></PrivateRoute>,
         loader: ({params})=>fetch(`http://localhost:5000/tasks/${params.id}`)
       },
       {
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/add',
-        element:<AddTask></AddTask>
+        element:<PrivateRoute><AddTask></AddTask></PrivateRoute>
       }
     ]
   }
