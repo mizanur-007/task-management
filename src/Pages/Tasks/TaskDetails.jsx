@@ -1,7 +1,9 @@
 import axios from 'axios';
+import { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const TaskDetails = () => {
+    const [selected, setSelected] = useState(false);
     const data = useLoaderData()
     const {_id, projectTitle, task, detailInformation, dueDate, shortDescription} = data;
 
@@ -14,6 +16,7 @@ const TaskDetails = () => {
         .catch(()=>{
             console.log("todo error")
         })
+        setSelected(true)
     }
 
     return (
@@ -29,7 +32,7 @@ const TaskDetails = () => {
             <Link to={`/update/${_id}`}> <button className='btn btn-accent mt-6 text-white font-bold text-xl'>UPDATE</button>
             </Link>
             <br />
-            <button onClick={handleAddList} className='btn btn-accent mt-6 text-white font-bold text-xl'>ADD TO DO LIST</button>
+            <button onClick={handleAddList} className={`btn btn-accent mt-6 text-white font-bold text-xl ${selected?'hidden':'block'}`}>ADD TO DO LIST</button>
             </div>
             
         </div>
