@@ -1,14 +1,17 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const TaskDetails = () => {
     const [selected, setSelected] = useState(false);
     const data = useLoaderData()
     const {_id, projectTitle, task, detailInformation, dueDate, shortDescription} = data;
+    const {user} = useContext(AuthContext);
+    const userEmail = user.email;
 
     const handleAddList = ()=>{
-        const addData = {task,projectTitle, shortDescription, detailInformation, dueDate };
+        const addData = {userEmail, task,projectTitle, shortDescription, detailInformation, dueDate };
         axios.post('http://localhost:5000/api/v1/todolist',addData,{withCredentials:true})
         .then((res)=>{
             console.log(res.data)

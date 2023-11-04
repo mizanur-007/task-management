@@ -44,12 +44,18 @@ const router = createBrowserRouter([
       {
         path:'/taskdetails/:id',
         element:<PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/api/v1/tasks/${params.id}`)
+        loader: ({params})=>fetch(`http://localhost:5000/api/v1/tasks/${params.id}`, {
+          method: 'GET',
+          credentials: 'include'
+      })
       },
       {
         path:'/update/:id',
         element:<PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({params})=>fetch(`http://localhost:5000/api/v1/tasks/${params.id}`)
+        loader: ({params})=>fetch(`http://localhost:5000/api/v1/tasks/${params.id}`, {
+          method: 'GET',
+          credentials: 'include'
+      })
       },
       {
         path:'/todo',

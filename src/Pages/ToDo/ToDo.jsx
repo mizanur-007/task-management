@@ -4,13 +4,19 @@ import LoaderPage from '../LoaderPage/LoaderPage';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import ToDoTask from './ToDoTask';
 import { toast } from 'react-toastify';
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const ToDo = () => {
+    const {user} = useContext(AuthContext);
+    const userEmail = user.email;
+
     const client = useQueryClient();
+
     const {data, isLoading, isError} = useQuery({
         queryKey: ['todo'],
         queryFn: async()=>{
-            const response = await axios.get("http://localhost:5000/api/v1/todolist",{withCredentials: true})
+            const response = await axios.get(`http://localhost:5000/api/v1/todolist?email=${userEmail}`,{withCredentials: true})
             const result = await response.data;
             return result
         }
