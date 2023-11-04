@@ -10,7 +10,7 @@ const ToDo = () => {
     const {data, isLoading, isError} = useQuery({
         queryKey: ['todo'],
         queryFn: async()=>{
-            const response = await axios.get("http://localhost:5000/todolist",{withCredentials: true})
+            const response = await axios.get("http://localhost:5000/api/v1/todolist",{withCredentials: true})
             const result = await response.data;
             return result
         }
@@ -25,7 +25,7 @@ const ToDo = () => {
 
     //delete a card
     const handleDelete = (id)=>{
-        axios.delete(`http://localhost:5000/todolist/${id}`)
+        axios.delete(`http://localhost:5000/api/v1/todolist/${id}`)
         .then(()=>{
             toast.error("Deleted Task",{
                 autoClose: 2000

@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
         const loggedUser = {email: user?.email}
 
         if(user){
-          axios.post("http://localhost:5000/jwt",loggedUser, {withCredentials:true})
+          axios.post("http://localhost:5000/api/v1/jwt",loggedUser, {withCredentials:true})
           .then((res)=>{
             console.log(res.data)
           })
@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
           })
         }
         else{
-          axios.post("http://localhost:5000/logout",loggedUser, {withCredentials:true})
+          axios.post("http://localhost:5000/api/v1/logout",loggedUser, {withCredentials:true})
           .then((res)=>{
             console.log(res.data)
           })

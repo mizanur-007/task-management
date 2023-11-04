@@ -30,7 +30,7 @@ const Update = () => {
     dueDate
 
     }
-    axios.put(`http://localhost:5000/update/${_id}`,updatedData,{withCredentials:true})
+    axios.put(`http://localhost:5000/api/v1/update/${_id}`,updatedData,{withCredentials:true})
     .then(()=>{
       toast.success("Updated Successfully",{
         autoClose: 2000

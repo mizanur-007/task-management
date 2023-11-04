@@ -9,7 +9,7 @@ const TaskDetails = () => {
 
     const handleAddList = ()=>{
         const addData = {task,projectTitle, shortDescription, detailInformation, dueDate };
-        axios.post('http://localhost:5000/todolist',addData,{withCredentials:true})
+        axios.post('http://localhost:5000/api/v1/todolist',addData,{withCredentials:true})
         .then((res)=>{
             console.log(res.data)
         })
