@@ -13,7 +13,7 @@ const perPage = 8;
     const {data, isLoading, isError} = useQuery({
         queryKey:["tasks",currentPage],
         queryFn: async()=>{
-            const result = await axios.get(`http://localhost:5000/api/v1/tasks?currentPage=${currentPage}&size=${perPage}`);
+            const result = await axios.get(`https://task-management-server-qrslhdxt7-md-mizanur-rahmans-projects.vercel.app/api/v1/tasks?currentPage=${currentPage}&size=${perPage}`);
             const data = await result.data;
             return data;
         }

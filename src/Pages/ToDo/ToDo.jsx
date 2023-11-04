@@ -16,7 +16,7 @@ const ToDo = () => {
     const {data, isLoading, isError} = useQuery({
         queryKey: ['todo'],
         queryFn: async()=>{
-            const response = await axios.get(`http://localhost:5000/api/v1/todolist?email=${userEmail}`,{withCredentials: true})
+            const response = await axios.get(`https://task-management-server-qrslhdxt7-md-mizanur-rahmans-projects.vercel.app/api/v1/todolist?email=${userEmail}`,{withCredentials: true})
             const result = await response.data;
             return result
         }
@@ -31,7 +31,7 @@ const ToDo = () => {
 
     //delete a card
     const handleDelete = (id)=>{
-        axios.delete(`http://localhost:5000/api/v1/todolist/${id}`)
+        axios.delete(`https://task-management-server-qrslhdxt7-md-mizanur-rahmans-projects.vercel.app/api/v1/todolist/${id}`)
         .then(()=>{
             toast.error("Deleted Task",{
                 autoClose: 2000

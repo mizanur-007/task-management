@@ -12,7 +12,7 @@ const TaskDetails = () => {
 
     const handleAddList = ()=>{
         const addData = {userEmail, task,projectTitle, shortDescription, detailInformation, dueDate };
-        axios.post('http://localhost:5000/api/v1/todolist',addData,{withCredentials:true})
+        axios.post('https://task-management-server-qrslhdxt7-md-mizanur-rahmans-projects.vercel.app/api/v1/todolist',addData,{withCredentials:true})
         .then((res)=>{
             console.log(res.data)
         })
