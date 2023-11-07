@@ -32,3 +32,5 @@ Features:
 10. Registration: User can create account with email and password and also by google and github
 
 11. Private Route: Task Details, To do list, Add and update are Private route
+
+12.Pagination: pagination is added to home and tasks route
