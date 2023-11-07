@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path:'/taskdetails/:id',
         element:<PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>,
-        loader: ({params})=>fetch(`https://task-management-server-qrslhdxt7-md-mizanur-rahmans-projects.vercel.app/api/v1/tasks/${params.id}`, {
+        loader: ({params})=>fetch(`https://task-management-server-peach.vercel.app/api/v1/tasks/${params.id}`, {
           method: 'GET',
           credentials: 'include'
       })
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       {
         path:'/update/:id',
         element:<PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({params})=>fetch(`https://task-management-server-qrslhdxt7-md-mizanur-rahmans-projects.vercel.app/api/v1/tasks/${params.id}`, {
+        loader: ({params})=>fetch(`https://task-management-server-peach.vercel.app/api/v1/tasks/${params.id}`, {
           method: 'GET',
           credentials: 'include'
       })

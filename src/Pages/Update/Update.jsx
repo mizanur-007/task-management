@@ -30,7 +30,7 @@ const Update = () => {
     dueDate
 
     }
-    axios.put(`https://task-management-server-qrslhdxt7-md-mizanur-rahmans-projects.vercel.app/api/v1/update/${_id}`,updatedData,{withCredentials:true})
+    axios.put(`https://task-management-server-peach.vercel.app/api/v1/update/${_id}`,updatedData,{withCredentials:true})
     .then(()=>{
       toast.success("Updated Successfully",{
         autoClose: 2000

@@ -20,7 +20,7 @@ const AddTask = () => {
         dueDate
     
         }
-        axios.post(`https://task-management-server-qrslhdxt7-md-mizanur-rahmans-projects.vercel.app/api/v1/tasks`,AddData,{withCredentials:true})
+        axios.post(`https://task-management-server-peach.vercel.app/api/v1/tasks`,AddData,{withCredentials:true})
         .then(()=>{
           toast.error("Added Successfully",{
             autoClose: 2000
