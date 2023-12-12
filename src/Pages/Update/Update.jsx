@@ -56,11 +56,11 @@ const Update = () => {
         <div className=" text-center w-500px">
             <h1 className="text-3xl text-emerald-400 font-bold mb-8">Update</h1>
           <form onSubmit={handleUpdate} className="space-y-6">
-            <div className="flex gap-6">
+            <div className="flex flex-col md:flex-row gap-6">
             <input className="w-80 py-1 px-2 bg-[#00000049] rounded-md text-white font-medium" defaultValue={task} type="text" name="task" />
             <input className="w-80 py-1 px-2 bg-[#00000049] rounded-md text-white font-medium" defaultValue={projectTitle} name="project" type="text" />
             </div>
-            <div className="flex gap-6">
+            <div className="flex flex-col md:flex-row gap-6">
             <input className="w-80 py-1 px-2 bg-[#00000049] rounded-md text-white font-medium" defaultValue={shortDescription} name="description" type="text" />
             <input className="w-80 py-1 px-2 bg-[#00000049] rounded-md text-white font-medium" defaultValue={detailInformation} name="information" type="text" />
             </div>
