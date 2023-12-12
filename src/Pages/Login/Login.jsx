@@ -70,7 +70,7 @@ const Login = () => {
   }
   return (
     <div className="flex items-center justify-evenly  bg-[#F0F6FA] px-5 rounded-xl pb-11 pt-10">
-      <div className="flex-1">
+      <div className="flex-1 ml-10 md:ml-0">
         <h1 className="text-3xl text-white text-center bg-gradient-to-r from-purple-500 to-pink-500 mb-7 py-9 rounded-3xl font-bold w-80">
           Login
         </h1>
@@ -124,7 +124,7 @@ const Login = () => {
 </div>
       </div>
 
-      <div className="max-h-[80vh] flex-1">
+      <div className="max-h-[80vh] flex-1 hidden md:block">
         <Lottie className="h-[80vh]" animationData={loginLogo}></Lottie>
       </div>
     </div>
