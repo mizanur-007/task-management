@@ -43,14 +43,14 @@ const AddTask = () => {
           }}
         >
           <div className="hero-overlay bg-opacity-50 rounded-xl"></div>
-          <div className=" text-center w-500px">
+          <div className=" text-center lg:w-500px">
               <h1 className="text-3xl text-pink-400 font-bold mb-8">Add A Task</h1>
             <form onSubmit={handleAdd} className="space-y-6">
-              <div className="flex gap-6">
+              <div className="flex flex-col lg:flex-row gap-6">
               <input className="w-80 py-1 px-2 bg-[#00000049] rounded-md text-white font-medium" placeholder='Task' type="text" name="task" />
               <input className="w-80 py-1 px-2 bg-[#00000049] rounded-md text-white font-medium" placeholder='Project Title' name="project" type="text" />
               </div>
-              <div className="flex gap-6">
+              <div className="flex flex-col lg:flex-row gap-6">
               <input className="w-80 py-1 px-2 bg-[#00000049] rounded-md text-white font-medium" placeholder='Short Description' name="description" type="text" />
               <input className="w-80 py-1 px-2 bg-[#00000049] rounded-md text-white font-medium" placeholder='Details' name="information" type="text" />
               </div>
