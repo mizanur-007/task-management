@@ -15,7 +15,7 @@ Features:
 
        -A footer containing copyright and links
 
-2. TAsks: All the task is displayed here as in the home page
+2. Tasks: All the task is displayed here as in the home page
 
 3.Task Details Route: Here task details and 2 button desplayed. Update button will navigate to a update route where a logged in user will be able to update the task. 
   Add to Do list will take the task to to do list of that specific user
