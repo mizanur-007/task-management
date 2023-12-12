@@ -64,7 +64,7 @@ const Registration = () => {
   };
   return (
     <div className="flex flex-row-reverse items-center justify-between gap-52  bg-[#dbf5fb] px-5 rounded-xl pb-11 pt-8">
-      <div className="flex-1 ml-16">
+      <div className="flex-1 ml-10 md:ml-48 lg:ml-16">
         <h1 className="text-3xl text-white text-center bg-gradient-to-r from-[#11bfef] via-[#3cecfc] to-[#a7e4f4] mb-7 py-9 rounded-3xl font-bold w-80">
           Registration
         </h1>
@@ -147,7 +147,7 @@ const Registration = () => {
             </Link>{" "}
           </p>
         </form>
-        <div className="flex flex-col items-center ml-20 lg:flex-row">
+        <div className="flex flex-col items-center mr-8 md:mr-48 lg:mr-0 lg:ml-20 lg:flex-row">
           <div className="grid place-items-center text-3xl">
             <button onClick={handleGoogleLogin}>
               <FcGoogle />
@@ -161,7 +161,7 @@ const Registration = () => {
           </div>
         </div>
       </div>
-      <div className="max-h-[80vh] flex-1">
+      <div className="max-h-[80vh] flex-1 hidden lg:block">
         <Lottie animationData={registerlogo}></Lottie>
       </div>
     </div>
